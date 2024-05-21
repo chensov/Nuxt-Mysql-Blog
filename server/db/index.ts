@@ -2,8 +2,8 @@ import mysql from 'mysql2/promise';
 import { useRuntimeConfig } from '#imports';
 
 interface Options {
-    query: string,
-    values?: any[]
+    query: string;
+    values?: any[];
 }
 
 const config = useRuntimeConfig();
@@ -11,7 +11,7 @@ const config = useRuntimeConfig();
 console.log('Database Config:', {
     host: config.dbHost,
     user: config.dbUser,
-    password: config.dbPassword,
+    password: config.dbPassword ? config.dbPassword : '(no password)',
     database: config.dbDatabase
 });
 
